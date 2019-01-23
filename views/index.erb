@@ -37,12 +37,3 @@ Run shotgun and go to http://localhost:9393 or the IP Address:PORT provided by t
         <p>This is the info page: here's some information about me!</p>
     </body>
 </html>
-Finally, update our controller to render that file.
-
-    get '/' do
-      erb :index
-    end
- 
-    get "/info" do
-      erb :info
-    end
