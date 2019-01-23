@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First View!!</title>
+    </head>
+    <body>
+        <h1>Hello World</h1>
+        <p>This HTML code is inside of a '.erb' file in the views directory, where it belongs.</p>
+    </body>
+</html>
+Now, we just need to update our controller to render the index.erb file at the "/" route. The syntax for this is as follows:
+
+    get '/' do
+      erb :index
+    end
+This tells Sinatra to render a file called index.erb inside of a directory called views. Save your files and refresh your preview to see your changes. Awesome, right?
+
+Part 3: Multiple Routes with Multiple Views
+We can create as many routes and views as we want. Let's create a route called "/info" in our controller.
+
+    get '/' do
+      erb :index
+    end
+ 
+    get "/info" do
+      "Testing the info page"
+    end
+Run shotgun and go to http://localhost:9393 or the IP Address:PORT provided by the Learn IDE. Your "Hello World" text should now appear as an <h1>. Nice! With shotgun running, head to http://localhost:9393/info . You should see "Testing the info page" rendered there. This lets us know that our route is defined properly. Next, let's have this route render a separate file instead. Inside of the views directory, create a file called info.erb. Add whatever HTML code you like.
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Info Page</title>
+    </head>
+    <body>
+        <h1>Info Page</h1>
+        <p>This is the info page: here's some information about me!</p>
+    </body>
+</html>
+Finally, update our controller to render that file.
+
+    get '/' do
+      erb :index
+    end
+ 
+    get "/info" do
+      erb :info
+    end
